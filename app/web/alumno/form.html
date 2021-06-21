@@ -1,0 +1,38 @@
+{{define "alumno/formPage"}}
+
+{{ template "Header" }}
+{{ template "Menu" }} 
+{{ . }}
+
+<div class="title">
+  {{if .IsEdit }}Update{{else}}Create{{end}} 
+</div>
+ 
+
+<form method="POST">
+  <input type="hidden" name="id" value="{{ .Data.Id }}" />
+  <div class="field">
+    <label class="label">Nombres</label>
+    <div class="control">
+      <input class="input" type="text" placeholder="Nombres" name="nombres" value="{{ .Data.Nombres }}" required>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Codigo</label>
+    <div class="control">
+      <input class="input" type="text" placeholder="Codigo" name="codigo" value="{{ .Data.Codigo }}">
+    </div>
+  </div>
+  <div class="field is-grouped">
+    <div class="control">
+      <input type="submit" value="Save user" class="button is-primary"/>
+    </div>
+    
+  </div>
+
+
+
+</form><br />    
+{{ template "Footer" }}
+{{end}}

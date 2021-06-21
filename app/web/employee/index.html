@@ -1,0 +1,43 @@
+{{define "employee/indexPage"}}
+{{ template "Header" }}
+{{ template "Menu"  }}
+<div class="title">
+  Registered
+</div>
+
+<div class="table-container">
+  <a href="/employee/form">NEW employee</a>
+  <table class="table">
+  <thead>
+  <tr>
+    <td>#</td>
+    <td>Name</td>
+    <td>City</td>
+    <td>View</td>
+    <td>Edit</td>
+    <td>Delete</td>
+  </tr>
+   </thead>
+   <tbody>
+  {{ range $i, $d := .Widgets  }}
+    <tr>
+      <td>{{ inc $i }} </td>
+      <td> {{ $d.Name }} </td>
+      <td>{{ $d.City }} </td> 
+      <td><a href="../employee/show?id={{ $d.Id }}">View</a></td>
+      <td><a href="../employee/form?id={{ $d.Id }}">Edit</a></td>
+      <td><a href="../employee/delete?id={{ $d.Id }}" onclick="return confirm('Are you sure?');">Delete</a></td>
+    </tr>
+  {{ end }}
+   </tbody>
+  </table>
+</div>
+
+<script>
+  function confirmToDelete(){
+    if(confirm('Are you sure?')) ;
+  }
+</script>
+{{ template "Footer" }}
+{{end}}
+

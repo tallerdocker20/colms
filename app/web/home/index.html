@@ -1,0 +1,12 @@
+{{define "home/indexPage"}}
+    {{ template "Header" }}
+    {{ template "Menu"  }}
+    <br>
+    Home<br>
+    {{ . }}
+    <br>
+    Title={{ .Title }}<br>
+    Notes={{ .Notes }}
+
+    {{ template "Footer" }}
+{{end}}

@@ -1,0 +1,39 @@
+{{define "user/loginformPage"}}
+
+{{ template "Header" }}
+{{ template "Menu" }} 
+{{ . }}
+
+<div class="title">
+  LOGIN
+</div>
+ 
+
+<form method="POST">
+  <div class="field">
+    <label class="label">Email</label>
+    <div class="control">
+      <input class="input" type="text" placeholder="Email" name="email" value="{{ .Data.Email }}" required>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Password</label>
+    <div class="control">
+      <input class="input" type="text" placeholder="Password" name="password" value="{{ .Data.Password }}">
+    </div>
+  </div>
+
+
+  <div class="field is-grouped">
+    <div class="control">
+      <input type="submit" value="LogIn" class="button is-primary"/>
+    </div>
+    
+  </div>
+
+
+
+</form><br />    
+{{ template "Footer" }}
+{{end}}

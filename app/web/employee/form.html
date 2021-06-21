@@ -1,0 +1,38 @@
+{{define "employee/formPage"}}
+
+{{ template "Header" }}
+{{ template "Menu" }} 
+{{ . }}
+
+<div class="title">
+  {{if .IsEdit }}Update{{else}}Create{{end}} 
+</div>
+ 
+
+<form method="POST">
+  <input type="hidden" name="id" value="{{ .Data.Id }}" />
+  <div class="field">
+    <label class="label">Name</label>
+    <div class="control">
+      <input class="input" type="text" placeholder="Name" name="name" value="{{ .Data.Name }}" required>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">City</label>
+    <div class="control">
+      <input class="input" type="text" placeholder="City" name="city" value="{{ .Data.City }}">
+    </div>
+  </div>
+  <div class="field is-grouped">
+    <div class="control">
+      <input type="submit" value="Save user" class="button is-primary"/>
+    </div>
+    
+  </div>
+
+
+
+</form><br />    
+{{ template "Footer" }}
+{{end}}

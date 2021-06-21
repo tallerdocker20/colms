@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  colms:
+    build:
+      context: "./app"
+    volumes:
+      - "./app:/app/server"
+    container_name: colms-app
+    restart: always
+    ports:
+      - "8090:8080"
+    tty: true
+  #  depends_on:
+  #    - db
+
+  #db:
+  #  build:
+  #    context: "./MySQL"
+  #  environment:
+  #    MYSQL_ROOT_PASSWORD: root
+  #    MYSQL_DATABASE: test_db
+  #    MYSQL_USER: docker
+  #    MYSQL_PASSWORD: docker
+  #  container_name: go2_db
+  #  ports:
+  #    - "3306:3306"
+  #  tty: true
+  #  volumes:
+  #    - "./_data:/var/lib/mysql"
+
+#para la db unirse a una red de docker
+networks:
+  default:
+    external:
+      name: mysql_default # deberá estar corriendo este contenedor.  docker network ls

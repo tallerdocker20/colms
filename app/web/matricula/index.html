@@ -1,0 +1,44 @@
+{{define "matricula/indexPage"}}
+{{ template "Header" }}
+{{ template "Menu"  }}
+<div class="title">
+  Registered
+</div>
+<img border="0" alt="W3Schools" src="../../assets/img/images.png" width="100" height="100">
+
+<div class="table-container">
+  <a href="/matricula/form">NEW matricula</a>
+  <table class="table">
+  <thead>
+  <tr>
+    <td>#</td>
+    <td>Semestre</td>
+    <td>Alumno</td>
+    <td>View</td>
+    <td>Edit</td>
+    <td>Delete</td>
+  </tr>
+   </thead>
+   <tbody>
+  {{ range $i, $d := .Widgets  }}
+    <tr>
+      <td>{{ inc $i }} </td>
+      <td> {{ $d.Semestre }} </td>
+      <td>{{ $d.Alumno.Nombres }} </td> 
+      <td><a href="../matricula/show?id={{ $d.Id }}">View</a></td>
+      <td><a href="../matricula/form?id={{ $d.Id }}">Edit</a></td>
+      <td><a href="../matricula/delete?id={{ $d.Id }}" onclick="return confirm('Are you sure?');">Delete</a></td>
+    </tr>
+  {{ end }}
+   </tbody>
+  </table>
+</div>
+
+<script>
+  function confirmToDelete(){
+    if(confirm('Are you sure?')) ;
+  }
+</script>
+{{ template "Footer" }}
+{{end}}
+
